@@ -54,7 +54,7 @@ export function HappyStudentsCard() {
             className="-mr-4 h-[43px] w-[43px] shrink-0 rounded-full object-cover"
           />
         ))}
-        <div className="relative ml-3 mt-[13px] h-[43px] w-[43px] shrink-0">
+        <div className="relative ml-3 h-[43px] w-[43px] shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/brand/avatar-more.svg" alt="" width={43} height={43} />
           <span className="absolute inset-0 flex items-center justify-center font-satoshi text-[12px] font-bold leading-[1.5] text-shuttle-950">

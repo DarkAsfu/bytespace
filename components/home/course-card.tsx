@@ -77,14 +77,16 @@ export function CourseCard({ course }: { course: Course }) {
           height={454}
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-x-4 bottom-4 flex flex-wrap items-center gap-2">
+        <div className="absolute inset-x-3 bottom-3 flex flex-nowrap items-center gap-1.5">
           {badges.map((badge) => (
             <span
               key={badge.key}
-              className="flex items-center gap-1.5 rounded-full bg-white/85 px-3 py-1.5 text-shuttle-950"
+              className="flex items-center gap-1 whitespace-nowrap rounded-full bg-white/85 px-2 py-1 text-shuttle-950"
             >
-              <BadgeIcon name={badge.key} />
-              <span className="font-satoshi text-[12px] leading-none">{badge.text}</span>
+              <span className="shrink-0 scale-[0.85]">
+                <BadgeIcon name={badge.key} />
+              </span>
+              <span className="font-satoshi text-[11px] leading-none">{badge.text}</span>
             </span>
           ))}
         </div>

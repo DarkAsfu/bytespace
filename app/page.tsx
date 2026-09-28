@@ -3,6 +3,7 @@ import { HeroBanner } from "@/components/home/hero-banner";
 import { LogoStrip } from "@/components/home/logo-strip";
 import { FeaturedCourses } from "@/components/home/featured-courses";
 import { LearningCategories } from "@/components/home/learning-categories";
+import { WhyBytespace } from "@/components/home/why-bytespace";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -18,6 +19,7 @@ export default function HomePage() {
       </section>
       <FeaturedCourses />
       <LearningCategories />
+      <WhyBytespace />
       {/* TODO: TopCreators */}
     </main>
   );
