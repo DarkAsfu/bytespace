@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HeroBanner } from "@/components/home/hero-banner";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -7,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-4 py-10">
-      <h1 className="text-3xl font-semibold tracking-tight">Home</h1>
-      {/* TODO: compose from @/components/home/* — Hero, Categories, FeaturedCourses, TopCreators */}
+    <main className="flex flex-1 flex-col">
+      <HeroBanner />
+      {/* TODO: compose from @/components/home/* — Categories, FeaturedCourses, TopCreators */}
     </main>
   );
 }
