@@ -60,6 +60,30 @@ function FeatureBody({ children }: { children: string }) {
   );
 }
 
+/**
+ * The visual compositions are laid out on a fixed 569px stage (the lg column
+ * width) using absolute px offsets. On smaller screens the stage is scaled
+ * down about its centre so the composition keeps its exact layout instead of
+ * overflowing the column.
+ */
+function ScaledStage({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`relative aspect-square w-full ${className}`}>
+      {/* 569px stage vs the 2-col column: 1 col until 1024, 448px column at
+          1024, and 569px again once the 1202px cap kicks in. */}
+      <div className="absolute left-1/2 top-1/2 h-[569px] w-[569px] -translate-x-1/2 -translate-y-1/2 origin-center scale-[0.5] min-[400px]:scale-[0.62] sm:scale-100 lg:scale-[0.79] min-[1202px]:scale-100">
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function StatColumn({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col">
@@ -118,7 +142,9 @@ export function WhyBytespace() {
     <section className="relative w-full overflow-hidden bg-white">
       <GlowBlobs />
 
-      <div className="relative mx-auto flex w-full max-w-[1202px] flex-col gap-28 px-5 py-20 sm:px-8 lg:gap-40 lg:px-0 lg:py-28">
+      {/* px-0 only once the viewport is wide enough for the 1202px cap —
+          below that the container is full-bleed and still needs a gutter. */}
+      <div className="relative mx-auto flex w-full max-w-[1202px] flex-col gap-20 px-5 py-16 sm:px-8 lg:gap-40 lg:py-28 min-[1202px]:px-0">
         {/* ---------- Block 1 ---------- */}
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col gap-6">
@@ -136,10 +162,10 @@ export function WhyBytespace() {
             </div>
           </div>
 
-          {/* Visual — GUESSED layout */}
-          <div className="relative aspect-square w-full">
+          {/* Visual */}
+          <ScaledStage>
             {/* Course card sits behind the photo, at natural width */}
-            <div className="absolute left-0 top-[3%] w-full max-w-[373px]">
+            <div className="absolute left-0 top-[3%] w-[373px]">
               <CourseCard course={FEATURE_COURSE} />
             </div>
             {/* Photo overlaps the course card */}
@@ -161,13 +187,13 @@ export function WhyBytespace() {
               rotate={-12}
               style={{ right: "-12%", top: "20%", width: 150, height: 150 }}
             />
-          </div>
+          </ScaledStage>
         </div>
 
         {/* ---------- Block 2 ---------- */}
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Visual — GUESSED layout */}
-          <div className="relative order-2 aspect-square w-full lg:order-1">
+          {/* Visual */}
+          <ScaledStage className="order-2 lg:order-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/girl.png"
@@ -191,7 +217,7 @@ export function WhyBytespace() {
               className="absolute"
               style={{ left: "58%", top: "20%", width: 160, height: 160 }}
             />
-          </div>
+          </ScaledStage>
 
           <div className="flex flex-col gap-6 lg:order-2">
             <FeatureHeading>Create &amp; Manage Courses Easily.</FeatureHeading>

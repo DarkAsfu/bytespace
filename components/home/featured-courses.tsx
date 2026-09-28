@@ -116,7 +116,7 @@ export function FeaturedCourses() {
 
         <CategoryChips active={active} onSelect={setActive} />
 
-        <div className="flex w-full flex-wrap items-start content-start gap-10">
+        <div className="grid w-full grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-start content-start gap-10">
           {visible.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}

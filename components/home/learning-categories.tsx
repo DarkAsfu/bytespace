@@ -18,11 +18,11 @@ export function LearningCategories() {
           description="At Bytespace, we believe in empowering individuals through knowledge. Our diverse range of courses spans various fields, ensuring there's something for everyone. Unleash your potential and explore our carefully curated categories."
         />
 
-        <div className="flex w-full flex-wrap items-start content-start gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-between gap-5 md:gap-10">
           {CATEGORY_CARDS.map((card) => (
             <div
               key={card.label}
-              className="flex h-[168px] w-full max-w-[167px] shrink-0 flex-col items-center justify-center gap-4 rounded-[24px] border border-shuttle-200 bg-white px-4 py-6"
+              className="flex h-[168px] w-full shrink-0 flex-col items-center justify-center gap-4 rounded-[24px] border border-shuttle-200 bg-white px-4 py-6"
             >
               <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-electric-lime">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

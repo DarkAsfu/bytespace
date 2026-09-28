@@ -9,7 +9,7 @@ const LOGOS = [
 export function LogoStrip({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`flex flex-wrap items-end justify-center gap-x-8 gap-y-6 sm:gap-x-12 lg:flex-nowrap lg:gap-x-[72px] ${className}`}
+      className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-end justify-center gap-x-8 gap-y-6 sm:gap-x-12 lg:flex-nowrap lg:gap-x-[72px] ${className}`}
     >
       {LOGOS.map((logo) => (
         // eslint-disable-next-line @next/next/no-img-element
