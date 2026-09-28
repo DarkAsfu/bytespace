@@ -2,7 +2,8 @@ type OrnamentKind = "frame" | "cone";
 
 interface Ornament {
   kind: OrnamentKind;
-  left: number;
+  /** Horizontal offset from the frame's horizontal centre (px at the 1440 reference). */
+  offsetX: number;
   top: number;
   width: number;
   height: number;
@@ -14,7 +15,7 @@ interface Ornament {
 const ORNAMENTS: Ornament[] = [
   {
     kind: "frame",
-    left: 1127,
+    offsetX: 407,
     top: 672,
     width: 330,
     height: 330,
@@ -23,7 +24,7 @@ const ORNAMENTS: Ornament[] = [
   },
   {
     kind: "frame",
-    left: -118,
+    offsetX: -838,
     top: 221,
     width: 385,
     height: 385,
@@ -32,7 +33,7 @@ const ORNAMENTS: Ornament[] = [
   },
   {
     kind: "frame",
-    left: 183,
+    offsetX: -537,
     top: 477,
     width: 175,
     height: 175,
@@ -42,7 +43,7 @@ const ORNAMENTS: Ornament[] = [
   },
   {
     kind: "cone",
-    left: 18,
+    offsetX: -702,
     top: 682,
     width: 342,
     height: 342,
@@ -51,7 +52,7 @@ const ORNAMENTS: Ornament[] = [
   },
   {
     kind: "cone",
-    left: 1231,
+    offsetX: 511,
     top: 221,
     width: 370,
     height: 370,
@@ -60,7 +61,7 @@ const ORNAMENTS: Ornament[] = [
   },
   {
     kind: "cone",
-    left: 1106,
+    offsetX: 386,
     top: 464,
     width: 188,
     height: 188,
@@ -69,21 +70,23 @@ const ORNAMENTS: Ornament[] = [
   },
 ];
 
-const SHADOW = [
-  "drop-shadow(6px 8px 12px rgba(0, 0, 0, 0.10))",
-  "drop-shadow(3px 4px 6px rgba(0, 0, 0, 0.08))",
-  "drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.06))",
-].join(" ");
+const SHADOW = "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.10))";
+
+/**
+ * The matcap PNGs carry hard-baked shading. Left raw, `hard-light` amplifies
+ * that into harsh dark edges, so contrast is pulled down before tinting.
+ */
+const SOURCE_FILTER = `contrast(0.55) brightness(1.06) ${SHADOW}`;
 
 export function HeroOrnaments() {
   return (
-    <>
+    <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
       {ORNAMENTS.map((o) => (
         <div
-          key={`${o.left}-${o.top}`}
+          key={`${o.offsetX}-${o.top}`}
           style={{
             position: "absolute",
-            left: o.left,
+            left: `calc(50% + ${o.offsetX}px)`,
             top: o.top,
             width: o.width,
             height: o.height,
@@ -101,7 +104,7 @@ export function HeroOrnaments() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                filter: SHADOW,
+                filter: SOURCE_FILTER,
               }}
             />
             <div
@@ -123,6 +126,6 @@ export function HeroOrnaments() {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 }

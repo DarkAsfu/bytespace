@@ -3,8 +3,16 @@ import { routes } from "@/lib/routes";
 
 const CENTER_LINKS = [
   { label: "Home", href: routes.home(), className: "font-medium leading-[1.2]" },
-  { label: "Courses", href: routes.courses(), className: "font-normal leading-[1.6]" },
-  { label: "Creators", href: routes.creators(), className: "font-normal leading-[1.6]" },
+  {
+    label: "Courses",
+    href: routes.courses(),
+    className: "font-normal leading-[1.6]",
+  },
+  {
+    label: "Creators",
+    href: routes.creators(),
+    className: "font-normal leading-[1.6]",
+  },
 ];
 
 const RIGHT_LINKS = [
@@ -16,7 +24,7 @@ export function Navbar() {
   return (
     <header
       style={{ position: "absolute", left: 0, top: 0, width: "100%", height: 120, overflow: "clip" }}
-      className="font-satoshi text-[16px] text-shuttle-50"
+      className="hidden font-satoshi text-[16px] text-shuttle-50 lg:block"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -28,7 +36,7 @@ export function Navbar() {
       />
       <Link
         href={routes.home()}
-        className="type-logo absolute whitespace-nowrap text-shuttle-50"
+        className="absolute whitespace-nowrap text-shuttle-50 font-clash-display text-[24px] font-bold leading-none"
         style={{ left: 159, top: 42 }}
       >
         ByteSpace
@@ -60,7 +68,13 @@ export function Navbar() {
           </Link>
         ))}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/icon-bag.svg" alt="Cart" width={24} height={24} className="shrink-0" />
+        <img
+          src="/brand/icon-bag.svg"
+          alt="Cart"
+          width={24}
+          height={24}
+          className="shrink-0"
+        />
       </div>
     </header>
   );
