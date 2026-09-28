@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { HeroBanner } from "@/components/home/hero-banner";
 import { LogoStrip } from "@/components/home/logo-strip";
 import { FeaturedCourses } from "@/components/home/featured-courses";
+import { LearningCategories } from "@/components/home/learning-categories";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -16,7 +17,8 @@ export default function HomePage() {
         <LogoStrip />
       </section>
       <FeaturedCourses />
-      {/* TODO: compose from @/components/home/* — Categories, FeaturedCourses, TopCreators */}
+      <LearningCategories />
+      {/* TODO: TopCreators */}
     </main>
   );
 }

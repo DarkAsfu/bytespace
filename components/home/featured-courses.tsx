@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CategoryChips } from "@/components/home/category-chips";
 import { CourseCard, type Course } from "@/components/home/course-card";
+import { SectionHeader } from "@/components/home/section-header";
 
 const COURSES: Course[] = [
   {
@@ -108,16 +109,10 @@ export function FeaturedCourses() {
   return (
     <section className="flex w-full flex-col bg-white px-5 pb-20 sm:px-8 lg:px-[120px] lg:pt-4">
       <div className="mx-auto flex w-full max-w-[1199px] flex-col gap-10">
-        <header className="flex w-full flex-col items-center gap-4 text-center">
-          <h2 className="max-w-[620px] text-center font-poppins text-[28px] font-semibold leading-[1.2] tracking-[-0.28px] text-[#040819] sm:text-[36px] lg:text-[44px] lg:leading-[52.8px] lg:tracking-[-0.44px]">
-            Discover Your Passion, Build Your Skills
-          </h2>
-          <p className="max-w-[918px] text-center font-satoshi text-[16px] font-normal leading-[1.6] text-shuttle-400 sm:text-[18px] lg:leading-[28.8px]">
-            At ByteSpace Courses, we bring you closer to life-changing knowledge. Explore a
-            variety of courses across different fields, from technology to the arts, and
-            make a difference in your career and life.
-          </p>
-        </header>
+        <SectionHeader
+          title="Discover Your Passion, Build Your Skills"
+          description="At ByteSpace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across different fields, from technology to the arts, and make a difference in your career and life."
+        />
 
         <CategoryChips active={active} onSelect={setActive} />
 
