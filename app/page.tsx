@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroBanner } from "@/components/home/hero-banner";
 import { LogoStrip } from "@/components/home/logo-strip";
+import { FeaturedCourses } from "@/components/home/featured-courses";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -14,6 +15,7 @@ export default function HomePage() {
       <section className="w-full bg-white px-5 py-16 sm:px-8 lg:px-[120px] lg:py-24">
         <LogoStrip />
       </section>
+      <FeaturedCourses />
       {/* TODO: compose from @/components/home/* — Categories, FeaturedCourses, TopCreators */}
     </main>
   );
