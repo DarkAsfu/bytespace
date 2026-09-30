@@ -16,7 +16,7 @@ function GridBackground() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
     >
       <Image
         src="/images/not-found/grid.svg"
@@ -83,15 +83,17 @@ export function NotFoundHero() {
         <Navbar />
       </div>
 
-      <div className="relative w-full lg:hidden">
-        <div className="flex flex-col items-center px-5 pt-6">
-          <Big404 className="text-[clamp(120px,42vw,340px)] leading-[1] tracking-[-0.02em]" />
-        </div>
-        <GridBackground />
+      <div className="relative isolate w-full lg:hidden">
         <MobileHeader />
 
-        <div className="flex flex-col items-center gap-6 px-5 pb-14 text-center">
-          <h1 className={`${type.heading} max-w-[520px] text-white text-center`}>
+        <div className="flex flex-col items-center px-5">
+          <Big404 className="relative -z-10 text-[clamp(120px,42vw,340px)] leading-[1] tracking-[-0.02em]" />
+        </div>
+
+        <GridBackground />
+
+        <div className="relative z-10 flex flex-col items-center gap-6 px-5 pb-14 text-center">
+          <h1 className={`${type.heading} max-w-[520px] text-white`}>
             {HEADING}
           </h1>
           <p className={`${type.bodyL} max-w-[520px] text-shuttle-100`}>

@@ -22,7 +22,7 @@ export function Brand({
         height={31.5}
         className="h-[26px] w-auto shrink-0 lg:h-[31.5px] lg:w-[28.875px]"
       />
-      <span className={`${type.logo} whitespace-nowrap mt-1 ${textClassName}`}>
+      <span className={`${type.logo} whitespace-nowrap mt-0 ${textClassName}`}>
         ByteSpace
       </span>
     </Link>
