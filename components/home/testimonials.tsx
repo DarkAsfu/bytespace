@@ -35,7 +35,7 @@ const TESTIMONIALS: Testimonial[] = [
 
 export function Testimonials() {
   return (
-    <section className="relative w-full overflow-hidden bg-white px-5 pb-16 sm:px-8 lg:px-[120px] lg:py-24">
+    <section className="relative w-full overflow-hidden bg-white px-5 py-16 sm:px-8 lg:px-[120px] lg:py-24">
       <GlowBlobs />
 
       <div className="relative mx-auto flex w-full max-w-[1199px] flex-col gap-10 lg:gap-14">

@@ -2,9 +2,6 @@ import Link from "next/link";
 import { routes } from "@/lib/routes";
 import { TintedOrnament } from "@/components/home/ornaments";
 
-/* Sizes are the confirmed ornament dimensions (the lime squiggle measures
- * 386.79px tall in Figma, matching the hero banner's 385px squiggle).
- * Positions are measured from the reference and still need Figma offsets. */
 const ORNAMENTS = [
   { image: "/images/squiggle-2.png", color: "#D4FB20", left: -130, top: -150, size: 385, rotate: 0 },
   { image: "/images/squiggle-2.png", color: "#F5F5F6", left: 205, top: 15, size: 175, rotate: 360 },
@@ -15,11 +12,44 @@ const ORNAMENTS = [
   { image: "/images/cone-ring.png", color: "#D4FB20", left: 70, top: 360, size: 342, rotate: 0 },
 ];
 
+const MOBILE_ORNAMENTS = [
+  {
+    image: "/images/squiggle-2.png",
+    color: "#D4FB20",
+    style: {
+      left: "-6%",
+      top: "-5%",
+      width: "clamp(100px, 34vw, 175px)",
+      height: "clamp(100px, 34vw, 175px)",
+    },
+  },
+  {
+    image: "/images/cone-triangle.png",
+    color: "#D4FB20",
+    style: {
+      right: "2%",
+      top: "10%",
+      width: "clamp(54px, 18vw, 92px)",
+      height: "clamp(54px, 18vw, 92px)",
+    },
+  },
+  {
+    image: "/images/squiggle-1.png",
+    color: "#fff",
+    style: {
+      right: "-7%",
+      bottom: "-4%",
+      width: "clamp(74px, 26vw, 132px)",
+      height: "clamp(74px, 26vw, 132px)",
+    },
+  },
+];
+
 export function CreatorCta() {
   return (
     <section className="relative flex min-h-[510px] w-full flex-col items-center justify-center overflow-hidden bg-persian-blue px-5 py-16 sm:px-8 lg:h-[488px] lg:px-0 lg:py-0">
       {/* Grid background */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/grid-bg.svg"
@@ -28,22 +58,43 @@ export function CreatorCta() {
         />
       </div>
 
-      {/* Ornaments */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        {ORNAMENTS.map((o) => (
+      {/* Below lg: 3 lime ornaments, viewport-anchored */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden lg:hidden"
+      >
+        {MOBILE_ORNAMENTS.map((o) => (
           <TintedOrnament
-            key={`${o.left}-${o.top}`}
+            key={o.image + o.style.top}
             image={o.image}
             color={o.color}
             className="absolute"
-            rotate={o.rotate}
-            style={{ left: o.left, top: o.top, width: o.size, height: o.size }}
+            style={o.style}
           />
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative flex w-full max-w-[1202px] flex-col items-center text-center">
+      {/* lg and up: all 7 on a 1440×488 stage, scaled to the viewport */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 hidden overflow-hidden lg:block"
+      >
+        <div className="absolute left-1/2 top-1/2 h-[488px] w-[1440px] origin-center -translate-x-1/2 -translate-y-1/2 scale-[0.7] xl:scale-[0.88] min-[1440px]:scale-100">
+          {ORNAMENTS.map((o) => (
+            <TintedOrnament
+              key={`${o.left}-${o.top}`}
+              image={o.image}
+              color={o.color}
+              className="absolute"
+              rotate={o.rotate}
+              style={{ left: o.left, top: o.top, width: o.size, height: o.size }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Content — above the decorations */}
+      <div className="relative z-10 flex w-full max-w-[1202px] flex-col items-center text-center">
         {/* Heading M */}
         <h2 className="max-w-[720px] text-center font-poppins text-[28px] font-semibold leading-[1.2] tracking-[-0.28px] text-shuttle-50 sm:text-[36px] lg:text-[44px] lg:leading-[52.8px] lg:tracking-[-0.44px]">
           Unlock Your Potential as a Creator with ByteSpace
