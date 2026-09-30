@@ -153,10 +153,11 @@ export function WhyBytespace() {
               <CourseCard course={FEATURE_COURSE} />
             </div>
             {/* Photo overlaps the course card */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/images/hero-person.png"
               alt=""
+              width={516}
+              height={483}
               className="absolute left-[62%] top-[6%] h-[88%] w-auto -translate-x-1/2 object-contain"
             />
             {/* Progress card: Figma top 213px, left 345px — nudged down/right */}
@@ -178,8 +179,7 @@ export function WhyBytespace() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Visual */}
           <ScaledStage className="order-2 lg:order-1">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/images/girl.png"
               alt=""
               width={500}
@@ -212,8 +212,7 @@ export function WhyBytespace() {
             <ul className="mt-2 flex flex-col gap-5">
               {CREATOR_FEATURES.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src="/brand/icon-check-circle.svg"
                     alt=""
                     width={24}

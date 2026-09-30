@@ -13,7 +13,7 @@ export function Brand({
   return (
     <Link
       href={routes.home()}
-      className={`flex items-center gap-2 ${className}`}
+      className={`flex gap-2 ${className}`}
     >
       <Image
         src="/brand/logo-icon.svg"
@@ -22,7 +22,7 @@ export function Brand({
         height={31.5}
         className="h-[26px] w-auto shrink-0 lg:h-[31.5px] lg:w-[28.875px]"
       />
-      <span className={`${type.logo} whitespace-nowrap ${textClassName}`}>
+      <span className={`${type.logo} whitespace-nowrap mt-1 ${textClassName}`}>
         ByteSpace
       </span>
     </Link>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const HAPPY_AVATARS = [
   "/images/auth/happy-a1.png",
   "/images/auth/happy-a2.png",
@@ -23,10 +25,11 @@ export function HappyStudentsLime() {
             <b className="font-bold text-shuttle-950">4.5 </b>(240)
           </span>
           <span className="relative block h-4 w-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/images/auth/star-16.svg"
               alt=""
+              width={13.1625}
+              height={12.5676}
               style={{ position: "absolute", top: "6.92%", right: "8.87%", bottom: "14.53%", left: "8.87%" }}
             />
           </span>
@@ -35,8 +38,7 @@ export function HappyStudentsLime() {
 
       <div className="flex items-start">
         {HAPPY_AVATARS.map((src) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             key={src}
             src={src}
             alt=""
@@ -46,8 +48,7 @@ export function HappyStudentsLime() {
           />
         ))}
         <div className="relative grid h-[43px] w-[43px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/images/auth/happy-more.svg"
             alt=""
             width={43}
