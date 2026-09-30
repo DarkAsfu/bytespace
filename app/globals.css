@@ -46,6 +46,23 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ByteSpace design tokens (Figma node 1:1695) */
+  --color-persian-blue: #003be2;
+  --color-electric-lime: #d4fb20;
+  --color-shuttle-50: #f5f5f6;
+  --color-shuttle-100: #e5e6e8;
+  --color-shuttle-200: #ced0d3;
+  --color-shuttle-400: #82868e;
+  --color-shuttle-700: #4b4c53;
+  --color-shuttle-950: #242528;
+  --color-black-700: #4f4f4f;
+  --color-black-950: #000000;
+  --color-progress-track: #f6f6f6;
+
+  --font-poppins: var(--font-poppins);
+  --font-satoshi: var(--font-satoshi);
+  --font-clash-display: var(--font-clash-display);
 }
 
 :root {

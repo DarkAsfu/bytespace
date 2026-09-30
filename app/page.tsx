@@ -1,4 +1,9 @@
 import type { Metadata } from "next";
+import { HeroBanner } from "@/components/home/hero-banner";
+import { LogoStrip } from "@/components/home/logo-strip";
+import { FeaturedCourses } from "@/components/home/featured-courses";
+import { LearningCategories } from "@/components/home/learning-categories";
+import { WhyBytespace } from "@/components/home/why-bytespace";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -7,9 +12,15 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-4 py-10">
-      <h1 className="text-3xl font-semibold tracking-tight">Home</h1>
-      {/* TODO: compose from @/components/home/* — Hero, Categories, FeaturedCourses, TopCreators */}
+    <main className="flex flex-1 flex-col">
+      <HeroBanner />
+      <section className="w-full bg-white px-5 py-16 sm:px-8 lg:px-[120px] lg:py-24">
+        <LogoStrip />
+      </section>
+      <FeaturedCourses />
+      <LearningCategories />
+      <WhyBytespace />
+      {/* TODO: TopCreators */}
     </main>
   );
 }
