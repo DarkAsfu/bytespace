@@ -4,6 +4,7 @@ import { LogoStrip } from "@/components/home/logo-strip";
 import { FeaturedCourses } from "@/components/home/featured-courses";
 import { LearningCategories } from "@/components/home/learning-categories";
 import { WhyBytespace } from "@/components/home/why-bytespace";
+import { CreatorCta } from "@/components/home/creator-cta";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -20,6 +21,7 @@ export default function HomePage() {
       <FeaturedCourses />
       <LearningCategories />
       <WhyBytespace />
+      <CreatorCta />
       {/* TODO: TopCreators */}
     </main>
   );
