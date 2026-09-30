@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
 
@@ -26,8 +27,7 @@ export function Navbar() {
       style={{ position: "absolute", left: 0, top: 0, width: "100%", height: 120, overflow: "clip" }}
       className="hidden font-satoshi text-[16px] text-shuttle-50 lg:block"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/brand/logo-icon.svg"
         alt="ByteSpace"
         width={28.875}
@@ -67,8 +67,7 @@ export function Navbar() {
             {link.label}
           </Link>
         ))}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/brand/icon-bag.svg"
           alt="Cart"
           width={24}

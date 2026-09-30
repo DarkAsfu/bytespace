@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Navbar } from "@/components/home/navbar";
 import { MobileHeader } from "@/components/home/mobile-header";
 import { HeroSearchBar } from "@/components/home/search-bar";
@@ -19,11 +20,11 @@ function GridBackground() {
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 overflow-hidden"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/images/grid-bg.svg"
         alt=""
-        style={{ position: "absolute", inset: "-0.2% -0.14% 0 0", width: "100%", height: "100%" }}
+        fill
+        style={{ position: "absolute", inset: "-0.2% -0.14% 0 0", objectFit: "cover" }}
       />
     </div>
   );
@@ -37,10 +38,11 @@ function HeroPhoto({
   style?: React.CSSProperties;
 }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src="/images/hero-person.png"
       alt="Student learning with ByteSpace"
+      width={578}
+      height={541}
       className={className}
       style={style}
     />
@@ -50,13 +52,10 @@ function HeroPhoto({
 export function HeroBanner() {
   return (
     <section className="relative w-full overflow-hidden bg-persian-blue">
-      {/* ---------- Desktop / large: exact 1440 composition ---------- */}
       <div className="relative hidden w-full lg:block lg:h-[1024px]">
         <GridBackground />
 
-        {/* Big circle */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/images/big-circle.svg"
           alt=""
           width={1149}
@@ -69,7 +68,6 @@ export function HeroBanner() {
           }}
         />
 
-        {/* Hero content */}
         <div
           style={{ position: "absolute", left: "50%", top: 169, transform: "translateX(-50%)" }}
           className="flex w-[1200px] max-w-full flex-col items-center gap-[60px] px-6"
@@ -85,7 +83,6 @@ export function HeroBanner() {
 
         <Navbar />
 
-        {/* Main photo */}
         <HeroPhoto
           style={{
             position: "absolute",
@@ -98,7 +95,6 @@ export function HeroBanner() {
           }}
         />
 
-        {/* Cards, below ornaments — offsets are from the frame centre */}
         <div style={{ position: "absolute", left: "calc(50% + 122px)", top: 651 }}>
           <LearningProgressCard />
         </div>
@@ -108,13 +104,11 @@ export function HeroBanner() {
 
         <HeroOrnaments />
 
-        {/* UI/UX card is the topmost layer */}
         <div style={{ position: "absolute", left: "calc(50% - 316px)", top: 639 }}>
           <UiUxDesignCard />
         </div>
       </div>
 
-      {/* ---------- Mobile / tablet ---------- */}
       <div className="relative w-full lg:hidden">
         <GridBackground />
         <MobileHeader />

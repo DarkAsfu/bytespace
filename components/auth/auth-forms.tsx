@@ -45,9 +45,9 @@ export function AuthField({
 }
 
 /** Social buttons are always centred within the content column. */
-export function SocialRow({ inputClass }: { inputClass: string }) {
+export function SocialRow() {
   return (
-    <div className={`flex items-center justify-center gap-4 ${inputClass}`}>
+    <div className="flex w-full items-center justify-center gap-4">
       <button
         type="button"
         aria-label="Continue with Facebook"
@@ -108,7 +108,7 @@ export function SignInForm({ inputClass }: { inputClass: string }) {
         Sign In
       </button>
       <AuthDivider />
-      <SocialRow inputClass={inputClass} />
+      <SocialRow />
     </form>
   );
 }

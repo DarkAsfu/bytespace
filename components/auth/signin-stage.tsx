@@ -27,7 +27,6 @@ function GoogleIcon() {
 export function SigninStage() {
   return (
     <div style={{ position: "relative", width: 1440, height: 1024, overflow: "hidden" }}>
-      {/* Header */}
       <header style={{ position: "absolute", left: 0, top: 0, width: 1440, height: 120, overflow: "hidden" }}>
         <Link
           href={routes.home()}

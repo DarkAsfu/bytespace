@@ -16,7 +16,6 @@ export default async function SearchPage({ searchParams }: Props) {
       <h1 className="text-3xl font-semibold tracking-tight">
         Search {q ? `— “${q}”` : ""}
       </h1>
-      {/* TODO: SearchBar + results from @/components/search/* */}
     </main>
   );
 }

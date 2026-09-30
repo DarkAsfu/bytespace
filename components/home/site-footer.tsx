@@ -33,7 +33,6 @@ export function SiteFooter() {
     <footer className="w-full bg-white px-5 pb-8 pt-14 sm:px-8 lg:px-[120px] lg:pb-12 lg:pt-[70px]">
       <div className="mx-auto w-full max-w-[1202px]">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
-          {/* Newsletter */}
           <div className="flex flex-col gap-6">
             <Brand
               textClassName="text-shuttle-950"
@@ -44,8 +43,6 @@ export function SiteFooter() {
               Stay Up to date with our latest features and releases by joining our newsletter.
             </p>
 
-            {/* gap: 41px — dropped to 12px below sm, and min-w-0 lets the input
-                shrink instead of overflowing the flex row. */}
             <form
               action={routes.search()}
               className="flex w-full items-start gap-3 sm:gap-[41px]"
@@ -70,7 +67,6 @@ export function SiteFooter() {
             </p>
           </div>
 
-          {/* Link columns */}
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6 lg:gap-0">
             {LINK_COLUMNS.map((column) => (
               <div key={column[0].label} className="flex flex-col gap-5 lg:gap-6">
@@ -88,7 +84,6 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-14 flex flex-col gap-4 border-t border-shuttle-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-satoshi text-[14px] text-shuttle-950">
             @ 2023 ByteSpace. All rights reserved.

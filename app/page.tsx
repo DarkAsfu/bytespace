@@ -26,7 +26,6 @@ export default function HomePage() {
       <CreatorCta />
       <Testimonials />
       <SiteFooter />
-      {/* TODO: TopCreators */}
     </main>
   );
 }

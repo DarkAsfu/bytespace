@@ -1,12 +1,8 @@
+import Image from "next/image";
 import { CourseCard } from "@/components/home/course-card";
 import { GlowBlobs } from "@/components/home/glow-blobs";
 import { HappyStudentsCard, LearningProgressCard } from "@/components/home/hero-cards";
 import { TintedOrnament } from "@/components/home/ornaments";
-
-/* ------------------------------------------------------------------ *
- * All measurements below are GUESSED from a screenshot. Replace with
- * the Figma spec when available.
- * ------------------------------------------------------------------ */
 
 const GROWTH_STATS = [
   { value: "12K", label: "Students" },
@@ -44,7 +40,6 @@ const REVENUE_CARDS = {
 
 function FeatureHeading({ children }: { children: string }) {
   return (
-    /* max-w derived from the design's line break: "Your Path to Professional" / "Growth Starts Here!" */
     <h3 className="max-w-[620px] font-poppins text-[28px] font-semibold leading-[1.2] tracking-[-0.28px] text-shuttle-950 sm:text-[36px] lg:text-[44px] lg:leading-[52.8px] lg:tracking-[-0.44px]">
       {children}
     </h3>
@@ -53,19 +48,12 @@ function FeatureHeading({ children }: { children: string }) {
 
 function FeatureBody({ children }: { children: string }) {
   return (
-    /* max-w derived from the design's 4-line wrap */
     <p className="max-w-[520px] font-satoshi text-[16px] font-normal leading-[1.6] text-shuttle-700 sm:text-[18px] lg:leading-[28.8px]">
       {children}
     </p>
   );
 }
 
-/**
- * The visual compositions are laid out on a fixed 569px stage (the lg column
- * width) using absolute px offsets. On smaller screens the stage is scaled
- * down about its centre so the composition keeps its exact layout instead of
- * overflowing the column.
- */
 function ScaledStage({
   children,
   className = "",
@@ -75,8 +63,6 @@ function ScaledStage({
 }) {
   return (
     <div className={`relative aspect-square w-full ${className}`}>
-      {/* 569px stage vs the 2-col column: 1 col until 1024, 448px column at
-          1024, and 569px again once the 1202px cap kicks in. */}
       <div className="absolute left-1/2 top-1/2 h-[569px] w-[569px] -translate-x-1/2 -translate-y-1/2 origin-center scale-[0.5] min-[400px]:scale-[0.62] sm:scale-100 lg:scale-[0.79] min-[1202px]:scale-100">
         {children}
       </div>
@@ -87,11 +73,9 @@ function ScaledStage({
 function StatColumn({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col">
-      {/* Display XS */}
       <span className="font-poppins text-[32px] font-medium leading-[1.22] tracking-[-0.32px] text-persian-blue sm:text-[36px] lg:leading-[44px] lg:tracking-[-0.36px]">
         {value}
       </span>
-      {/* Body L */}
       <span className="font-satoshi text-[16px] font-normal leading-[1.6] text-shuttle-700 sm:text-[18px] lg:leading-[28.8px]">
         {label}
       </span>

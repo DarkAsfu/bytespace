@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
 import { type } from "@/lib/typography";
@@ -14,8 +15,7 @@ export function Brand({
       href={routes.home()}
       className={`flex items-center gap-2 ${className}`}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/brand/logo-icon.svg"
         alt="ByteSpace"
         width={28.875}
