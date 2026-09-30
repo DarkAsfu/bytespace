@@ -17,7 +17,7 @@ export const type = {
   labelS:
     "font-satoshi font-medium leading-[1.2] text-[13px] lg:text-[14px]",
   bodyXS: "font-satoshi font-normal leading-[1.6] text-[11px] lg:text-[12px]",
-  logo: "font-clash-display font-bold leading-none text-[20px] lg:text-[24px]",
+  logo: "font-clash-display font-bold text-[24px] leading-normal",
 
   /** Heading XS — Figma node 1:1695 */
   headingXs:
@@ -26,6 +26,8 @@ export const type = {
   bodyLFixed: "font-satoshi font-normal text-[18px] leading-[28.8px]",
   /** Body XS — Figma node 1:1695 */
   bodyXs: "font-satoshi font-normal text-[12px] leading-[19.2px]",
+  /** Body S — footer description + menu links */
+  bodyS: "font-satoshi font-normal text-[14px] leading-[22.4px]",
 } as const;
 
 export const card =

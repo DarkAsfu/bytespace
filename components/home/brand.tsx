@@ -4,7 +4,7 @@ import { type } from "@/lib/typography";
 
 export function Brand({
   className = "",
-  textClassName = "",
+  textClassName = "text-white",
 }: {
   className?: string;
   textClassName?: string;
@@ -22,7 +22,7 @@ export function Brand({
         height={31.5}
         className="h-[26px] w-auto shrink-0 lg:h-[31.5px] lg:w-[28.875px]"
       />
-      <span className={`${type.logo} whitespace-nowrap text-white ${textClassName}`}>
+      <span className={`${type.logo} whitespace-nowrap ${textClassName}`}>
         ByteSpace
       </span>
     </Link>

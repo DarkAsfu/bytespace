@@ -3,7 +3,16 @@
  * All blobs: `filter: blur(20px)`, circular via `border-radius` = size.
  * Positions are px from the section's top-left, verbatim from Figma.
  */
-const BLOBS = [
+interface GlowBlob {
+  id: string;
+  size: number;
+  rgb: string;
+  stops: readonly [number, number, number, number];
+  top: number;
+  left: number;
+}
+
+const BLOBS: GlowBlob[] = [
   {
     id: "lime-strong-lg",
     size: 1137,
@@ -50,10 +59,15 @@ function gradient(rgb: string, [a0, a1, a2]: readonly number[]) {
   return `radial-gradient(50% 50% at 50% 50%, rgba(${rgb}, ${a0}) 0%, rgba(${rgb}, ${a1}) 53%, rgba(${rgb}, ${a2}) 75%, rgba(${rgb}, 0) 100%)`;
 }
 
-export function GlowBlobs() {
+export function GlowBlobs({
+  items = BLOBS,
+}: {
+  /** Section-specific placement. Defaults to the WhyBytespace offsets. */
+  items?: readonly GlowBlob[];
+}) {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-      {BLOBS.map((blob) => (
+      {items.map((blob) => (
         <div
           key={blob.id}
           style={{
