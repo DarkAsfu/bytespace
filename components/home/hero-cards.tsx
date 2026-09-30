@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { card, type } from "@/lib/typography";
 
 const AVATARS = [
@@ -32,8 +33,7 @@ export function HappyStudentsCard() {
         <span className={`${type.bodyXS} text-shuttle-950`}>4.5 </span>
         <span className={`${type.bodyXS} text-shuttle-400`}>(240)</span>
         <span className="relative inline-block h-4 w-4 shrink-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/brand/icon-star.svg"
             alt=""
             width={13.1625}
@@ -44,8 +44,7 @@ export function HappyStudentsCard() {
       </div>
       <div className="flex">
         {AVATARS.map((src) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             key={src}
             src={src}
             alt=""
@@ -55,8 +54,7 @@ export function HappyStudentsCard() {
           />
         ))}
         <div className="relative ml-3 h-[43px] w-[43px] shrink-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/avatar-more.svg" alt="" width={43} height={43} />
+          <Image src="/brand/avatar-more.svg" alt="" width={43} height={43} />
           <span className="absolute inset-0 flex items-center justify-center font-satoshi text-[12px] font-bold leading-[1.5] text-shuttle-950">
             2K+
           </span>

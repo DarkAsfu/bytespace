@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionHeader } from "@/components/home/section-header";
 
 const CATEGORY_CARDS: { label: string; icon: string; size: number }[] = [
@@ -25,8 +26,7 @@ export function LearningCategories() {
               className="flex h-[168px] w-full shrink-0 flex-col items-center justify-center gap-4 rounded-[24px] border border-shuttle-200 bg-white px-4 py-6"
             >
               <div className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-electric-lime">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={card.icon}
                   alt=""
                   width={card.size}

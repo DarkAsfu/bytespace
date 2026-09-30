@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { type } from "@/lib/typography";
 
 export interface Course {
@@ -69,8 +70,7 @@ export function CourseCard({ course }: { course: Course }) {
   return (
     <article className="flex h-[384px] w-full max-w-[373px] shrink-0 flex-col overflow-hidden rounded-[24px] border border-shuttle-200 bg-white">
       <div className="relative h-[216px] w-full shrink-0 overflow-hidden bg-shuttle-100">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={course.image}
           alt=""
           width={682}
@@ -99,8 +99,7 @@ export function CourseCard({ course }: { course: Course }) {
           </h3>
           <p className={`${type.bodyLFixed} flex shrink-0 items-center gap-1 text-black-700`}>
             {course.rating}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/brand/icon-star.svg"
               alt=""
               width={12}
@@ -121,8 +120,7 @@ export function CourseCard({ course }: { course: Course }) {
           </span>
           <div className="flex items-center">
             {AVATARS.map((src) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <Image
                 key={src}
                 src={src}
                 alt=""
@@ -132,8 +130,7 @@ export function CourseCard({ course }: { course: Course }) {
               />
             ))}
             <div className="relative -ml-3 h-9 w-9 shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/brand/avatar-more.svg" alt="" width={36} height={36} />
+              <Image src="/brand/avatar-more.svg" alt="" width={36} height={36} />
               <span className="absolute inset-0 flex items-center justify-center font-satoshi text-[10px] font-bold text-shuttle-950">
                 {course.students}
               </span>

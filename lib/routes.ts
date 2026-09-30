@@ -1,4 +1,3 @@
-// Central route builders — sob page-e hardcoded string na likhe eigula use koro.
 export const routes = {
   home: () => "/",
   login: () => "/login",

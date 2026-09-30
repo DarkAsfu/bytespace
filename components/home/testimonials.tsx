@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { GlowBlobs } from "@/components/home/glow-blobs";
 import { type } from "@/lib/typography";
 
@@ -5,7 +6,6 @@ interface Testimonial {
   name: string;
   role: string;
   quote: string;
-  /* TODO: replace with the exported testimonial photos */
   avatar: string;
 }
 
@@ -40,11 +40,9 @@ export function Testimonials() {
 
       <div className="relative mx-auto flex w-full max-w-[1199px] flex-col gap-10 lg:gap-14">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-          {/* Heading M — max-w derived from the design's line break */}
           <h2 className="max-w-[520px] font-poppins text-[28px] font-semibold leading-[1.2] tracking-[-0.28px] text-black-950 sm:text-[36px] lg:text-[44px] lg:leading-[52.8px] lg:tracking-[-0.44px]">
             Discover What Our Community Is Saying
           </h2>
-          {/* Body L */}
           <p className={`${type.bodyL} max-w-[560px] text-black-700`}>
             At ByteSpace, our vibrant community of learners and creators is at the heart of
             what we do. Hear directly from those who have experienced the transformative
@@ -60,8 +58,7 @@ export function Testimonials() {
               key={item.name}
               className="flex flex-col items-start gap-6 rounded-[24px] bg-white p-6 shadow-[0_18px_40px_rgba(0,59,226,0.08)]"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={item.avatar}
                 alt=""
                 width={80}
@@ -69,16 +66,13 @@ export function Testimonials() {
                 className="h-[80px] w-[80px] shrink-0 rounded-full object-cover"
               />
               <div className="flex flex-col">
-                {/* Heading XS */}
                 <h3 className="font-poppins text-[20px] font-semibold leading-[24px] tracking-[-0.2px] text-black-950">
                   {item.name}
                 </h3>
-                {/* Body L */}
                 <p className="font-satoshi text-[18px] font-normal leading-[28.8px] text-persian-blue">
                   {item.role}
                 </p>
               </div>
-              {/* Body L */}
               <p className="font-satoshi text-[18px] font-normal leading-[28.8px] text-black-700">
                 &ldquo;{item.quote}&rdquo;
               </p>

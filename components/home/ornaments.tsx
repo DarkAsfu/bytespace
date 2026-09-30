@@ -1,8 +1,9 @@
+import Image from "next/image";
+
 type OrnamentKind = "frame" | "cone";
 
 interface Ornament {
   kind: OrnamentKind;
-  /** Horizontal offset from the frame's horizontal centre (px at the 1440 reference). */
   offsetX: number;
   top: number;
   width: number;
@@ -22,17 +23,8 @@ const ORNAMENTS: Ornament[] = [
 ];
 
 const SHADOW = "drop-shadow(0 8px 16px rgba(0, 0, 0, 0.10))";
-
-/**
- * The matcap PNGs carry hard-baked shading. Left raw, `hard-light` amplifies
- * that into harsh dark edges, so contrast is pulled down before tinting.
- */
 const SOURCE_FILTER = `contrast(0.55) brightness(1.06) ${SHADOW}`;
 
-/**
- * A 3D matcap tinted to a solid colour. The colour layer is masked by the
- * matcap itself, which guarantees the tint lands exactly on the shape.
- */
 export function TintedOrnament({
   image,
   color,
@@ -59,18 +51,11 @@ export function TintedOrnament({
       className={className}
       style={{ ...style, transform: transform || undefined, isolation: "isolate" }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={image}
         alt={alt}
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          filter: SOURCE_FILTER,
-        }}
+        fill
+        style={{ objectFit: "cover", filter: SOURCE_FILTER }}
       />
       <div
         style={{

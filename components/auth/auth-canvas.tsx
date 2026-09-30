@@ -1,22 +1,14 @@
+import Image from "next/image";
+
 export function AuthCanvas({ children }: { children: React.ReactNode }) {
   return (
     <main className="relative flex min-h-full w-full justify-center overflow-x-auto bg-persian-blue">
-      {/* Full-bleed grid — the stage is fixed at 1440px, so the grid has to live
-          out here to cover viewports wider than the artboard. */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/images/auth/grid.svg"
           alt=""
-          style={{
-            position: "absolute",
-            top: "-0.2%",
-            right: "-0.14%",
-            bottom: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-          }}
+          fill
+          style={{ position: "absolute", inset: "-0.2% -0.14% 0 0", objectFit: "cover" }}
         />
       </div>
 

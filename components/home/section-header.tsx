@@ -3,7 +3,6 @@ interface SectionHeaderProps {
   description: string;
 }
 
-/** Section title/description — Figma node 1:1695 (Heading M + Body L). */
 export function SectionHeader({ title, description }: SectionHeaderProps) {
   return (
     <header className="flex w-full flex-col items-center gap-4 text-center">

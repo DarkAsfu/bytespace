@@ -1,8 +1,3 @@
-/**
- * Decorative radial glows — Figma spec (node 1:1695).
- * All blobs: `filter: blur(20px)`, circular via `border-radius` = size.
- * Positions are px from the section's top-left, verbatim from Figma.
- */
 interface GlowBlob {
   id: string;
   size: number;
@@ -62,7 +57,6 @@ function gradient(rgb: string, [a0, a1, a2]: readonly number[]) {
 export function GlowBlobs({
   items = BLOBS,
 }: {
-  /** Section-specific placement. Defaults to the WhyBytespace offsets. */
   items?: readonly GlowBlob[];
 }) {
   return (

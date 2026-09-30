@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
 import { type } from "@/lib/typography";
@@ -76,8 +77,7 @@ export function MobileHeader() {
                 {link.label}
               </Link>
             ))}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/brand/icon-bag.svg"
               alt="Cart"
               width={24}
