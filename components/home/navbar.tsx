@@ -36,7 +36,7 @@ export function Navbar() {
       />
       <Link
         href={routes.home()}
-        className="absolute whitespace-nowrap text-shuttle-50 font-clash-display text-[24px] font-bold leading-none"
+        className="absolute whitespace-nowrap text-shuttle-50 font-clash-display text-[24px] font-bold leading-normal"
         style={{ left: 159, top: 42 }}
       >
         ByteSpace

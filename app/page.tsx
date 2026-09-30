@@ -5,6 +5,8 @@ import { FeaturedCourses } from "@/components/home/featured-courses";
 import { LearningCategories } from "@/components/home/learning-categories";
 import { WhyBytespace } from "@/components/home/why-bytespace";
 import { CreatorCta } from "@/components/home/creator-cta";
+import { Testimonials } from "@/components/home/testimonials";
+import { SiteFooter } from "@/components/home/site-footer";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -22,6 +24,8 @@ export default function HomePage() {
       <LearningCategories />
       <WhyBytespace />
       <CreatorCta />
+      <Testimonials />
+      <SiteFooter />
       {/* TODO: TopCreators */}
     </main>
   );
